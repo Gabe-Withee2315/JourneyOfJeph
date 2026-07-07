@@ -22,8 +22,8 @@ Jeph, a humble Galapagos Tortoise, lived a peaceful life until the Great Hare Ra
 ## Tech Stack
 
 - **Framework**: [libGDX](https://libgdx.com/)
-- **Language**: Java / Kotlin
-- **Platforms**: Desktop, Android, HTML5 (Planned)
+- **Language**: Java
+- **Platforms**: Desktop
 
 ## Project Structure
 
