@@ -1,36 +1,33 @@
-# Journey of Jeph
+# JourneyOfJeph
 
-**Journey of Jeph** is a retro-style 8-bit action game where a brave tortoise named Jeph embarks on a perilous quest to rescue his kidnapped wife, Tortellina, from the clutches of the evil King Hare, Jack, and his long-eared horde.
+A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
 
-## The Story
+This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
 
-Jeph, a humble Galapagos Tortoise, lived a peaceful life until the Great Hare Raid. Now, he must use every trick in his shell—and some high-tech upgrades—to fight through the Hare legions and bring Tortellina home.
+## Platforms
 
-## Features
+- `core`: Main module with the application logic shared by all platforms.
+- `lwjgl3`: Primary desktop platform using LWJGL3; was called 'desktop' in older docs.
 
-- **Classic 8-bit Aesthetics**: Experience a nostalgic pixel-art world.
-- **Unique Combat System**: Use Jeph's natural and technological abilities to defeat enemies.
-- **Boss Encounters**: Face off against Jack the King Hare in an epic final showdown.
+## Gradle
 
-### Jeph's Abilities
+This project uses [Gradle](https://gradle.org/) to manage dependencies.
+The Gradle wrapper was included, so you can run Gradle tasks using `gradlew.bat` or `./gradlew` commands.
+Useful Gradle tasks and flags:
 
-1.  **Spin Move**: A rapid shell spin that deflects projectiles and damages nearby Hares.
-2.  **Chomp**: A powerful bite for close-quarters combat.
-3.  **Launch**: Use a shell-integrated propulsion system to dash through enemies at high speed.
-4.  **Bombshell (Special)**: Jeph enters an explosive state, dealing massive area-of-effect damage.
+- `--continue`: when using this flag, errors will not stop the tasks from running.
+- `--daemon`: thanks to this flag, Gradle daemon will be used to run chosen tasks.
+- `--offline`: when using this flag, cached dependency archives will be used.
+- `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
+- `build`: builds sources and archives of every project.
+- `cleanEclipse`: removes Eclipse project data.
+- `cleanIdea`: removes IntelliJ project data.
+- `clean`: removes `build` folders, which store compiled classes and built archives.
+- `eclipse`: generates Eclipse project data.
+- `idea`: generates IntelliJ project data.
+- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
+- `lwjgl3:run`: starts the application.
+- `test`: runs unit tests (if any).
 
-## Tech Stack
-
-- **Framework**: [libGDX](https://libgdx.com/)
-- **Language**: Java / Kotlin
-- **Platforms**: Desktop, Android, HTML5 (Planned)
-
-## Project Structure
-
-- `core/`: Main game logic.
-- `assets/`: 8-bit sprites, sound effects, and music.
-- `docs/`: Design documents, issue tracking, and AI logs.
-
-## Development
-
-This project follows strict development guidelines defined in `AGENTS.md`. All AI interactions are logged in `docs/ai-log.md`.
+Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
+For example, `core:clean` removes `build` folder only from the `core` project.
