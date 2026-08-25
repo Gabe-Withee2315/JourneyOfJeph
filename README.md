@@ -29,5 +29,23 @@ Useful Gradle tasks and flags:
 - `lwjgl3:run`: starts the application.
 - `test`: runs unit tests (if any).
 
+<<<<<<< HEAD
 Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
 For example, `core:clean` removes `build` folder only from the `core` project.
+=======
+## Tech Stack
+
+- **Framework**: [libGDX](https://libgdx.com/)
+- **Language**: Java
+- **Platforms**: Desktop
+
+## Project Structure
+
+- `core/`: Main game logic.
+- `assets/`: 8-bit sprites, sound effects, and music.
+- `docs/`: Design documents, issue tracking, and AI logs.
+
+## Development
+
+This project follows strict development guidelines defined in `AGENTS.md`. All AI interactions are logged in `docs/ai-log.md`.
+>>>>>>> 14d979ee60d601ce11cb804497878989b70ba3bb
