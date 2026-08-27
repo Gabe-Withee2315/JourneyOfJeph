@@ -1,51 +1,50 @@
 # JourneyOfJeph
 
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
+A libGDX action game following the journey of **Jeph**, a high-tech cyborg tortoise on a mission to defend his territory against an endless onslaught of evil hares.
 
-This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
+## Game Overview
 
-## Platforms
+In **Journey of Jeph**, you take control of a cybernetically enhanced tortoise. Each level, you must clear the map of hostile hares to unlock the path to the next stage. As you progress, the hares become stronger and more numerous, with powerful Boss Hares appearing every 5 levels.
 
-- `core`: Main module with the application logic shared by all platforms.
-- `lwjgl3`: Primary desktop platform using LWJGL3; was called 'desktop' in older docs.
+Collect coins from fallen enemies to purchase additional health from the Shopkeeper or upgrade your weapons' damage at the Upgrader NPC.
 
-## Gradle
+## Controls
 
-This project uses [Gradle](https://gradle.org/) to manage dependencies.
-The Gradle wrapper was included, so you can run Gradle tasks using `gradlew.bat` or `./gradlew` commands.
-Useful Gradle tasks and flags:
+### Movement
+- **WASD** or **Arrow Keys**: Move Jeph around the map.
 
-- `--continue`: when using this flag, errors will not stop the tasks from running.
-- `--daemon`: thanks to this flag, Gradle daemon will be used to run chosen tasks.
-- `--offline`: when using this flag, cached dependency archives will be used.
-- `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
-- `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
-- `cleanIdea`: removes IntelliJ project data.
-- `clean`: removes `build` folders, which store compiled classes and built archives.
-- `eclipse`: generates Eclipse project data.
-- `idea`: generates IntelliJ project data.
-- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
-- `lwjgl3:run`: starts the application.
-- `test`: runs unit tests (if any).
+### Combat
+- **Space Bar**: Perform a **Chomp** attack. (Also used to interact with NPCs and the Shop).
+- **E Key**: Fire a **Missile** (requires missile ammo).
+- **Q Key**: **Spin Lunge**. Hold the key down to charge Jeph's spin; holding for 2+ seconds will result in a double-damage lunge.
 
-<<<<<<< HEAD
-Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
-For example, `core:clean` removes `build` folder only from the `core` project.
-=======
+### General
+- **C Key**: View the **Credits** screen (from the Start menu).
+- **R Key**: **Restart** the journey (from the Game Over screen).
+
 ## Tech Stack
 
 - **Framework**: [libGDX](https://libgdx.com/)
 - **Language**: Java
-- **Platforms**: Desktop
+- **Platforms**: Desktop (LWJGL3)
+- **Asset Creation**: Claude Code (Anthropic)
+- **Development Assistant**: Gemini (Google)
 
 ## Project Structure
 
-- `core/`: Main game logic.
-- `assets/`: 8-bit sprites, sound effects, and music.
-- `docs/`: Design documents, issue tracking, and AI logs.
+- `core/`: Main game logic and shared application code.
+- `lwjgl3/`: Desktop-specific launcher and configuration.
+- `assets/`: 8-bit sprites, TMX maps, and SFX (Chomp, Explosion, Spin).
+- `docs/`: Design documents, issue tracking, and AI interaction logs.
 
 ## Development
 
-This project follows strict development guidelines defined in `AGENTS.md`. All AI interactions are logged in `docs/ai-log.md`.
->>>>>>> 14d979ee60d601ce11cb804497878989b70ba3bb
+This project follows strict development guidelines defined in `AGENTS.md`. All AI interactions are logged in `docs/ai-log.md` for auditability and project tracking.
+
+## Gradle
+
+Use the included Gradle wrapper to build and run the project:
+
+- `lwjgl3:run`: Starts the application.
+- `lwjgl3:jar`: Builds a runnable JAR file in `lwjgl3/build/libs`.
+- `clean`: Removes build folders.

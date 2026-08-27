@@ -26,3 +26,4 @@
 | YYYY-MM-DD | Gemini (Android Studio) | Documentation | Clean up Issue Tracker and mark boss balancing as complete. | Yes | Removed irrelevant backlog items and moved difficulty scaling to the completed list in issues.md. | [Insert PR/Commit Link] |
 | YYYY-MM-DD | Gemini (Android Studio) | Audio Implementation | Integrate sound effects for Chomp, Spin Move, and Missile Explosion. | Yes | Loaded mp3 files from assets/SFX and implemented play/loop/stop logic in ActionGame.java for various moves and events. | [Insert PR/Commit Link] |
 | 2024-10-24 | Gemini (Android Studio) | Execution | Relaunch the game for bug testing. | Yes | Executed `:lwjgl3:run` to verify audio integration and general gameplay. | [Insert PR/Commit Link] |
+| 2024-10-24 | Gemini (Android Studio) | Documentation | Update README with story, controls, and mechanics. | Yes | Resolved merge conflicts in README.md and added sections for Game Overview and Controls. | [Insert PR/Commit Link] |
