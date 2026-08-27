@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="149">
+ <tileset firstgid="1" name="adventure-tiles" tilewidth="32" tileheight="32" tilecount="40" columns="10">
+  <image source="adventure-tiles.png" width="320" height="128"/>
+ </tileset>
+ <tileset firstgid="41" name="object-tiles" tilewidth="32" tileheight="32" tilecount="8" columns="8">
+  <image source="object-tiles.png" width="256" height="32"/>
+  <tile id="0" type="Bush"/>
+  <tile id="1" type="Rock"/>
+  <tile id="2" type="Coin"/>
+  <tile id="3" type="Treasure"/>
+  <tile id="4" type="Flyer"/>
+  <tile id="5" type="NPC">
+   <properties>
+    <property name="text" value="Hello, world!"/>
+   </properties>
+  </tile>
+  <tile id="6" type="ShopHeart"/>
+  <tile id="7" type="ShopArrow"/>
+ </tileset>
+ <layer id="1" name="Tile Layer 1" width="40" height="40">
+  <data encoding="csv">
+26,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,2,2,26,
+26,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,16,17,17,17,17,17,17,18,2,2,2,2,16,17,17,17,17,17,17,18,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,26,2,2,2,2,2,2,28,2,2,2,2,26,2,2,2,2,2,2,28,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,5,2,2,26,2,2,2,2,2,2,28,2,2,2,2,26,2,2,2,2,2,2,28,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,26,20,20,20,20,20,20,28,2,2,2,2,26,35,35,35,35,35,35,28,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,26,2,2,2,2,2,35,28,2,2,2,2,29,2,2,2,2,2,2,28,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,26,2,2,2,2,2,35,28,2,2,2,2,29,2,6,2,2,6,2,28,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,26,2,2,2,2,2,35,28,2,2,2,2,29,2,3,2,2,2,2,28,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,3,3,2,2,36,37,39,2,35,40,37,38,2,2,2,2,36,37,39,2,2,40,37,38,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,3,2,2,2,2,2,2,2,2,2,5,2,2,2,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+26,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,26,
+36,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,38
+</data>
+ </layer>
+ <objectgroup id="2" name="Object Layer 1">
+  <object id="1" type="Solid" x="0" y="0" width="1280" height="32"/>
+  <object id="3" type="Solid" x="0" y="32" width="32" height="1248"/>
+  <object id="4" type="Solid" x="1248" y="32" width="32" height="1248"/>
+  <object id="5" type="Solid" x="32" y="1248" width="1216" height="32"/>
+  <object id="6" name="start" x="640" y="1088" width="32" height="32"/>
+  <object id="23" name="Gatekeeper" gid="46" x="464" y="928" width="32" height="32">
+   <properties>
+    <property name="text" value="Hello, brave tortoise"/>
+   </properties>
+  </object>
+  <object id="24" gid="47" x="768.667" y="800" width="32" height="32"/>
+  <object id="25" gid="48" x="834.667" y="800" width="32" height="32"/>
+  <object id="26" name="Shopkeeper" gid="46" x="799.333" y="764.667" width="32" height="32">
+   <properties>
+    <property name="text">1: 1 Heart for 3 Coins!
+Space: 3 missiles for 4 Coins!</property>
+   </properties>
+  </object>
+  <object id="30" gid="44" x="464.667" y="785.333" width="32" height="32"/>
+  <object id="36" gid="41" x="320" y="960" width="32" height="32"/>
+  <object id="37" gid="41" x="288" y="992" width="32" height="32"/>
+  <object id="38" gid="41" x="288" y="1024" width="32" height="32"/>
+  <object id="39" gid="41" x="288" y="1056" width="32" height="32"/>
+  <object id="40" gid="42" x="288" y="1088" width="32" height="32"/>
+  <object id="41" gid="42" x="320" y="1184" width="32" height="32"/>
+  <object id="43" gid="42" x="1024" y="1056" width="32" height="32"/>
+  <object id="44" gid="42" x="1056" y="1184" width="32" height="32"/>
+  <object id="45" gid="42" x="992" y="1216" width="32" height="32"/>
+  <object id="46" gid="41" x="992" y="960" width="32" height="32"/>
+  <object id="47" gid="41" x="1056" y="1152" width="32" height="32"/>
+  <object id="48" gid="41" x="992" y="992" width="32" height="32"/>
+  <object id="49" gid="41" x="1024" y="1024" width="32" height="32"/>
+  <object id="50" gid="41" x="1056" y="1088" width="32" height="32"/>
+  <object id="51" gid="41" x="1056" y="1120" width="32" height="32"/>
+  <object id="52" gid="41" x="1024" y="1216" width="32" height="32"/>
+  <object id="53" gid="41" x="1056" y="1056" width="32" height="32"/>
+  <object id="54" gid="41" x="1024" y="1088" width="32" height="32"/>
+  <object id="55" gid="41" x="992" y="1024" width="32" height="32"/>
+  <object id="56" gid="41" x="1056" y="800" width="32" height="32"/>
+  <object id="57" gid="41" x="992" y="1248" width="32" height="32"/>
+  <object id="59" gid="41" x="1024" y="1184" width="32" height="32"/>
+  <object id="60" gid="41" x="288" y="1120" width="32" height="32"/>
+  <object id="61" gid="41" x="320" y="992" width="32" height="32"/>
+  <object id="62" gid="41" x="352" y="960" width="32" height="32"/>
+  <object id="63" gid="41" x="960" y="960" width="32" height="32"/>
+  <object id="64" gid="41" x="320" y="1152" width="32" height="32"/>
+  <object id="65" gid="41" x="288" y="1152" width="32" height="32"/>
+  <object id="66" gid="41" x="288" y="1184" width="32" height="32"/>
+  <object id="67" gid="41" x="288" y="1216" width="32" height="32"/>
+  <object id="68" gid="41" x="320" y="1216" width="32" height="32"/>
+  <object id="69" gid="41" x="320" y="1248" width="32" height="32"/>
+  <object id="71" gid="41" x="576" y="672" width="32" height="32"/>
+  <object id="72" gid="41" x="608" y="672" width="32" height="32"/>
+  <object id="73" gid="41" x="672" y="640" width="32" height="32"/>
+  <object id="74" gid="41" x="704" y="672" width="32" height="32"/>
+  <object id="75" type="Solid" x="736" y="672" width="256" height="32"/>
+  <object id="78" type="Solid" x="352" y="672" width="256" height="32"/>
+  <object id="79" type="Solid" x="352" y="896" width="96" height="32"/>
+  <object id="80" type="Solid" x="512" y="896" width="96" height="32"/>
+  <object id="81" type="Solid" x="736" y="896" width="96" height="32"/>
+  <object id="82" type="Solid" x="896" y="896" width="96" height="32"/>
+  <object id="83" type="Solid" x="960" y="704" width="32" height="192"/>
+  <object id="84" type="Solid" x="736" y="704" width="32" height="192"/>
+  <object id="85" type="Solid" x="576" y="704" width="32" height="192"/>
+  <object id="86" type="Solid" x="352" y="704" width="32" height="192"/>
+  <object id="87" gid="45" x="192" y="1088" width="32" height="32"/>
+  <object id="88" gid="45" x="480" y="640" width="32" height="32"/>
+  <object id="89" gid="45" x="288" y="832" width="32" height="32"/>
+  <object id="90" gid="45" x="1088" y="928" width="32" height="32"/>
+  <object id="94" gid="42" x="544" y="416" width="32" height="32"/>
+  <object id="95" gid="42" x="288" y="544" width="32" height="32"/>
+  <object id="96" gid="42" x="128" y="384" width="32" height="32"/>
+  <object id="97" gid="42" x="1152" y="384" width="32" height="32"/>
+  <object id="98" gid="42" x="1024" y="448" width="32" height="32"/>
+  <object id="99" gid="42" x="224" y="928" width="32" height="32"/>
+  <object id="100" gid="41" x="832" y="416" width="32" height="32"/>
+  <object id="101" gid="41" x="608" y="576" width="32" height="32"/>
+  <object id="102" gid="41" x="352" y="416" width="32" height="32"/>
+  <object id="103" gid="41" x="96" y="512" width="32" height="32"/>
+  <object id="104" gid="41" x="1184" y="960" width="32" height="32"/>
+  <object id="110" gid="45" x="1152" y="256" width="32" height="32"/>
+  <object id="111" gid="45" x="800" y="640" width="32" height="32"/>
+  <object id="112" gid="45" x="448" y="256" width="32" height="32"/>
+  <object id="113" gid="45" x="160" y="256" width="32" height="32"/>
+  <object id="114" gid="45" x="928" y="160" width="32" height="32"/>
+  <object id="119" gid="45" x="1120" y="1216" width="32" height="32"/>
+  <object id="120" gid="41" x="640" y="640" width="32" height="32"/>
+  <object id="121" gid="41" x="608" y="640" width="32" height="32"/>
+  <object id="122" gid="41" x="704" y="640" width="32" height="32"/>
+  <object id="123" gid="41" x="736" y="672" width="32" height="32"/>
+  <object id="147" name="Guide" gid="46" x="705.333" y="1055.33" width="32" height="32">
+   <properties>
+    <property name="text">Hello! Here are the controls
+Space bar: Chomp attack - 1 dmg | Q: Charge attack - 1-2 dmg
+E: Missile attack - 2 dmg       |
+</property>
+   </properties>
+  </object>
+  <object id="148" name="Upgrader" gid="46" x="896" y="768.667" width="32" height="32">
+   <properties>
+    <property name="text">upgrade your moves for five coins! Each upgrade gives +1 dmg
+1: Chomp | 2: Missile | 3: charge</property>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
