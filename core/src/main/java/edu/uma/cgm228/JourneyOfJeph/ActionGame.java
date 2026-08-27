@@ -3,6 +3,7 @@ package edu.uma.cgm228.JourneyOfJeph;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -40,6 +41,9 @@ public class ActionGame extends ApplicationAdapter {
     private Texture heroSheet, hareSheet, npcTexture, bushTexture, rockTexture, arrowTexture, smokeSheet, solidPixel, objectTiles;
     private TextureRegion chestRegion, heartRegion, missileRegion;
     private BitmapFont uiFont, titleFont;
+
+    private Sound chompSound, explosionSound, spinSound;
+    private long spinSoundId = -1;
 
     private final Vector2 heroPos = new Vector2();
     private final Rectangle heroBounds = new Rectangle(0, 0, 24, 24);
@@ -206,7 +210,7 @@ public class ActionGame extends ApplicationAdapter {
         TextureRegion[][] hTmp = TextureRegion.split(heroSheet, fh, fh);
         walkUp = createAnimation(hTmp, 0); walkLeft = createAnimation(hTmp, 1); walkDown = createAnimation(hTmp, 2); walkRight = createAnimation(hTmp, 3);
 
-        hareSheet = new Texture("enemy-flyer.png");
+        hareSheet = new Texture("hare_hop_spritesheet.png");
         TextureRegion[][] fTmp = TextureRegion.split(hareSheet, hareSheet.getHeight(), hareSheet.getHeight());
         hareAnimation = createAnimation(fTmp, 0);
 
@@ -221,6 +225,10 @@ public class ActionGame extends ApplicationAdapter {
         TextureRegion[] eF = new TextureRegion[8]; int idx = 0;
         for (int i=0; i<2; i++) for (int j=0; j<4; j++) eF[idx++] = sTmp[i][j];
         explosionAnim = new Animation<>(0.08f, eF);
+
+        chompSound = Gdx.audio.newSound(Gdx.files.internal("SFX/chomp.mp3"));
+        explosionSound = Gdx.audio.newSound(Gdx.files.internal("SFX/explosion.mp3"));
+        spinSound = Gdx.audio.newSound(Gdx.files.internal("SFX/spin_move.mp3"));
 
         camera = new OrthographicCamera();
         viewport = new FitViewport(800, 480, camera);
@@ -493,12 +501,16 @@ public class ActionGame extends ApplicationAdapter {
             spinLungeTimer -= delta; if (spinLungeTimer <= 0) isSpinLunging = false;
             if (checkMeleeHit(currentLungeDamage) == 2) { isSpinLunging = false; heroPos.add(spinLungeVelocity.x * -0.2f, spinLungeVelocity.y * -0.2f); }
         } else {
-            if (Gdx.input.isKeyPressed(Input.Keys.Q)) { isCharging = true; chargeTimer += delta; }
+            if (Gdx.input.isKeyPressed(Input.Keys.Q)) {
+                isCharging = true; chargeTimer += delta;
+                if (spinSoundId == -1) spinSoundId = spinSound.loop();
+            }
             else if (isCharging) {
                 isSpinLunging = true; spinLungeTimer = 0.35f;
                 currentLungeDamage = (chargeTimer >= 2f) ? (baseSpinDamage * 2) : baseSpinDamage;
                 float lx=0, ly=0; if(direction==0) ly=550; else if(direction==1) lx=-550; else if(direction==2) ly=-550; else lx=550;
                 spinLungeVelocity.set(lx, ly); isCharging = false; chargeTimer = 0;
+                if (spinSoundId != -1) { spinSound.stop(spinSoundId); spinSoundId = -1; }
             } else if (!isCharging) {
                 float mx=0, my=0; isMoving = false;
                 if(Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)) { my+=180*delta; direction=0; isMoving=true; }
@@ -534,6 +546,7 @@ public class ActionGame extends ApplicationAdapter {
                 float size = h.isBoss ? 96 : 32;
                 if (new Rectangle(m.pos.x, m.pos.y, 24, 24).overlaps(new Rectangle(h.pos.x, h.pos.y, size, size))) {
                     h.currentHealth -= missileDamage;
+                    explosionSound.play();
                     if (h.currentHealth <= 0) {
                         activeExplosions.add(new Explosion(h.pos.x+(size/2), h.pos.y+(size/2)));
                         hares.removeIndex(j);
@@ -573,7 +586,10 @@ public class ActionGame extends ApplicationAdapter {
             if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_1) && coins >= 5) { coins-=5; chompDamage++; message="Chomp Upgraded!"; }
             if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_2) && coins >= 5) { coins-=5; missileDamage++; message="Missile Upgraded!"; }
             if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_3) && coins >= 5) { coins-=5; baseSpinDamage++; message="Spin Upgraded!"; }
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) checkMeleeHit(chompDamage);
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+            chompSound.play();
+            checkMeleeHit(chompDamage);
+        }
         if (Gdx.input.isKeyJustPressed(Input.Keys.E) && missiles > 0 && !isCharging && !isSpinLunging) { activeMissiles.add(new Missile(heroPos.x, heroPos.y, direction)); missiles--; }
     }
 
@@ -601,5 +617,8 @@ public class ActionGame extends ApplicationAdapter {
     }
 
     @Override public void resize(int w, int h) { viewport.update(w, h); }
-    @Override public void dispose() { batch.dispose(); if(map!=null)map.dispose(); mapRenderer.dispose(); uiFont.dispose(); titleFont.dispose(); heroSheet.dispose(); hareSheet.dispose(); npcTexture.dispose(); bushTexture.dispose(); rockTexture.dispose(); arrowTexture.dispose(); smokeSheet.dispose(); solidPixel.dispose(); objectTiles.dispose(); }
+    @Override public void dispose() {
+        batch.dispose(); if(map!=null)map.dispose(); mapRenderer.dispose(); uiFont.dispose(); titleFont.dispose(); heroSheet.dispose(); hareSheet.dispose(); npcTexture.dispose(); bushTexture.dispose(); rockTexture.dispose(); arrowTexture.dispose(); smokeSheet.dispose(); solidPixel.dispose(); objectTiles.dispose();
+        chompSound.dispose(); explosionSound.dispose(); spinSound.dispose();
+    }
 }
